@@ -127,6 +127,54 @@ $liczba2 = "112.3";
 // stworzenie nowego obiektu (instancji)
 $dzialania = new Kalkulator($liczba1, $liczba2);
 
+if (is_a($dzialania, "Kalkulator")){
+	echo ("<small><em><strong>Test: </strong>obiekt o nazwie 'dzialania' jest instancją klasy o nazwie 'Kalkulator'.</em></small><br>");
+} else {
+	echo ("<strong>Coś jest nie tak.</strong><br>");
+}
+
+if (property_exists($dzialania, "x")){
+	echo ("<small><em><strong>Test: </strong>obiekt posiada atrybut o nazwie 'x'.</em></small><br>");
+} else {
+	echo ("<strong>Coś jest nie tak.</strong><br>");	
+}
+
+if (property_exists($dzialania, "y")){
+	echo ("<small><em><strong>Test: </strong>obiekt posiada atrybut o nazwie 'y'.</em></small><br>");
+} else {
+	echo ("<strong>Coś jest nie tak.</strong><br>");
+}
+
+if (method_exists($dzialania, "dodawanie")){
+	echo ("<small><em><strong>Test: </strong>obiekt posiada metodę 'dodawanie'.</em></small><br>");
+} else {
+	echo ("<strong>Coś jest nie tak.</strong><br>");
+}
+
+if (method_exists($dzialania, "odejmowanie")){
+	echo ("<small><em><strong>Test: </strong>obiekt posiada metodę 'odejmowanie'.</em></small><br>");
+} else {
+	echo ("<strong>Coś jest nie tak.</strong><br>");
+}
+
+if (method_exists($dzialania, "mnozenie")){
+	echo ("<small><em><strong>Test: </strong>obiekt posiada metodę 'mnozenie'.</em></small><br>");
+} else {
+	echo ("<strong>Coś jest nie tak.</strong><br>");
+}
+
+if (method_exists($dzialania, "dzielenie")){
+	echo ("<small><em><strong>Test: </strong>obiekt posiada metodę 'dzielenie'.</em></small><br>");
+} else {
+	echo ("<strong>Coś jest nie tak.</strong><br>");
+}
+
+if (method_exists($dzialania, "modulo")){
+	echo ("<small><em><strong>Test: </strong>obiekt posiada metodę 'modulo'.</em></small><br><br>");
+} else {
+	echo ("<strong>Coś jest nie tak.</strong><br>");
+}
+
 // wywołanie i wyświetlanie poszczególnych metod
 echo $dzialania->dodawanie();
 echo $dzialania->zaokraglenie();
