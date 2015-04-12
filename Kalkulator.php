@@ -96,81 +96,159 @@ class Kalkulator {
 	
 // Zaokrąglenie (metoda)
 	public function zaokraglenie() {
-		$zaokraglenie = round($this->wynik);
-		return ("<small><em>Wynik po zaokrągleniu <strong>$zaokraglenie</strong></em>.</small><br>");
+		if (is_float($this->wynik)) {
+			$zaokraglenie = round($this->wynik);
+			return ("<small><em><u>Wynik po zaokrągleniu:</u>
+					<strong>$zaokraglenie</strong></em>.</small>
+					<br>");
+		} else {
+			return ("<small><em><u>Wynik po zaokrągleniu:</u>
+					Nie ma co zaokrąglać, wynik jest wystarczająco okrągły ;)</em></small>
+					<br>");
+		}
 	}
 
 // Zaokrąglenie w dół (metoda)
 	public function zaokraglenieWdol() {
-		$zaokraglenieWdol = floor($this->wynik);
-		return ("<small><em>Wynik po zaokrągleniu w dół <strong>$zaokraglenieWdol</strong></em>.</small><br>");
+		if (is_float($this->wynik)) {
+			$zaokraglenieWdol = floor($this->wynik);
+			return ("<small><em><u>Wynik po zaokrągleniu w dół:</u>
+					<strong>$zaokraglenieWdol</strong></em>.</small>
+					<br>");
+		} else {
+			return ("<small><em><u>Wynik po zaokrągleniu w dół:</u>
+					Nie ma co zaokrąglać, wynik jest wystarczająco okrągły ;)</em></small>
+					<br>");
+		}
+		
 	}
 
 // Zaokrąglenie w górę (metoda)
 	public function zaokraglenieWgore() {
-		$zaokraglenieWgore = ceil($this->wynik);
-		return ("<small><em>Wynik po zaokrągleniu w górę <strong>$zaokraglenieWgore</strong></em>.</small><br><br>");
+		if (is_float($this->wynik)) {
+			$zaokraglenieWgore = ceil($this->wynik);
+			return ("<small><em><u>Wynik po zaokrągleniu w górę:</u>
+					<strong>$zaokraglenieWgore</strong></em>.</small>
+					<br><br>");
+		} else {
+			return ("<small><em><u>Wynik po zaokrągleniu w górę:</u>
+					Nie ma co zaokrąglać, wynik jest wystarczająco okrągły ;)</em></small>
+					<br><br>");
+		}
 	}
 }
 
-/*
 // Subklasa (child class), dziedzicąca po kalkulatorze (parent class)
 class RomanKonwerter extends Kalkulator {
-		(metoda zamieniajaca wynik Kalkulatora na liczbę rzymską - soon...)
+	//	(metoda zamieniajaca wynik Kalkulatora na liczbę rzymską - soon...)
+			
+	public function __construct($x, $y) {
+		parent::__construct($x, $y);
+		//$this-wynik-> $wynik;
+		echo ("uruchamiam konwerter<br>");
+		
+	}
+	
+	public function toRoman($int) {
+			$romanAndArabicNums = array (
+					'M' 	=> 1000,
+					'CM' 	=> 900,
+					'D' 	=> 500,
+					'CD' 	=> 400,
+					'C' 	=> 100,
+					'XC' 	=> 90,
+					'L' 	=> 50,
+					'XL' 	=> 40,
+					'X' 	=> 10,
+					'IX' 	=> 9,
+					'V' 	=> 5,
+					'IV' 	=> 4,
+					'I' 	=> 1,
+			);
+			$result = "";
+				
+			while ($int > 0){
+				foreach ($romanAndArabicNums as $roman => $arab) {
+					if ($int >= $arab){
+						$int -= $arab;
+						$result .= $roman;
+						break;
+					}
+				}
+			}
+			return $result;
 }
-*/
+
+}
+
 
 // Ustawienie zmiennych podawanych następnie jako parametrów do nowej instancji
-$liczba1 = "1543.2";
-$liczba2 = "112.3";
+$liczba1 = "2.5";
+$liczba2 = "2";
 
 // stworzenie nowego obiektu (instancji)
 $dzialania = new Kalkulator($liczba1, $liczba2);
 
 if (is_a($dzialania, "Kalkulator")){
-	echo ("<small><em><strong>Test: </strong>obiekt o nazwie 'dzialania' jest instancją klasy o nazwie 'Kalkulator'.</em></small><br>");
+	echo ("<small><em><strong>Test: </strong>
+			obiekt o nazwie 'dzialania' jest instancją klasy o nazwie 'Kalkulator'.</em></small>
+			<br>");
 } else {
 	echo ("<strong>Coś jest nie tak.</strong><br>");
 }
 
 if (property_exists($dzialania, "x")){
-	echo ("<small><em><strong>Test: </strong>obiekt posiada atrybut o nazwie 'x'.</em></small><br>");
+	echo ("<small><em><strong>Test: </strong>
+			obiekt posiada atrybut o nazwie 'x'.</em></small>
+			<br>");
 } else {
 	echo ("<strong>Coś jest nie tak.</strong><br>");	
 }
 
 if (property_exists($dzialania, "y")){
-	echo ("<small><em><strong>Test: </strong>obiekt posiada atrybut o nazwie 'y'.</em></small><br>");
+	echo ("<small><em><strong>Test: </strong>
+			obiekt posiada atrybut o nazwie 'y'.</em></small>
+			<br>");
 } else {
 	echo ("<strong>Coś jest nie tak.</strong><br>");
 }
 
 if (method_exists($dzialania, "dodawanie")){
-	echo ("<small><em><strong>Test: </strong>obiekt posiada metodę 'dodawanie'.</em></small><br>");
+	echo ("<small><em><strong>Test: </strong>
+			obiekt posiada metodę 'dodawanie'.</em></small>
+			<br>");
 } else {
 	echo ("<strong>Coś jest nie tak.</strong><br>");
 }
 
 if (method_exists($dzialania, "odejmowanie")){
-	echo ("<small><em><strong>Test: </strong>obiekt posiada metodę 'odejmowanie'.</em></small><br>");
+	echo ("<small><em><strong>Test: </strong>
+			obiekt posiada metodę 'odejmowanie'.</em></small>
+			<br>");
 } else {
 	echo ("<strong>Coś jest nie tak.</strong><br>");
 }
 
 if (method_exists($dzialania, "mnozenie")){
-	echo ("<small><em><strong>Test: </strong>obiekt posiada metodę 'mnozenie'.</em></small><br>");
+	echo ("<small><em><strong>Test: </strong>
+			obiekt posiada metodę 'mnozenie'.</em></small>
+			<br>");
 } else {
 	echo ("<strong>Coś jest nie tak.</strong><br>");
 }
 
 if (method_exists($dzialania, "dzielenie")){
-	echo ("<small><em><strong>Test: </strong>obiekt posiada metodę 'dzielenie'.</em></small><br>");
+	echo ("<small><em><strong>Test: </strong>
+			obiekt posiada metodę 'dzielenie'.</em></small>
+			<br>");
 } else {
 	echo ("<strong>Coś jest nie tak.</strong><br>");
 }
 
 if (method_exists($dzialania, "modulo")){
-	echo ("<small><em><strong>Test: </strong>obiekt posiada metodę 'modulo'.</em></small><br><br>");
+	echo ("<small><em><strong>Test: </strong>
+			obiekt posiada metodę 'modulo'.</em></small>
+			<br><br>");
 } else {
 	echo ("<strong>Coś jest nie tak.</strong><br>");
 }
@@ -200,6 +278,16 @@ echo $dzialania->modulo();
 echo $dzialania->zaokraglenie();
 echo $dzialania->zaokraglenieWdol();
 echo $dzialania->zaokraglenieWgore();
+
+// Stworzenie drugiego obiektu klasy RomanKonwerter i wykorzystanie dziedziczonej metody (dodawania)
+// Próba "przepuszczenia" wyniku dodawania przez metode klasy RomanKonwerter
+$liczba3 = "2";
+$liczba4 = "2";
+$arab = new RomanKonwerter($liczba3, $liczba4);
+echo $arab->dodawanie();
+var_dump($suma);
+//echo $arab->toRoman($arab->dodawanie());
+
 ?>
 </body>
 
