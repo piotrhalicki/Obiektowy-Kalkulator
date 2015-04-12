@@ -97,9 +97,20 @@ class Kalkulator {
 // Zaokrąglenie (metoda)
 	public function zaokraglenie() {
 		$zaokraglenie = round($this->wynik);
-		return ("<small><em>Wynik po zaokrągleniu <strong>$zaokraglenie</strong></em>.</small><br><br>");
+		return ("<small><em>Wynik po zaokrągleniu <strong>$zaokraglenie</strong></em>.</small><br>");
 	}
-		
+
+// Zaokrąglenie w dół (metoda)
+	public function zaokraglenieWdol() {
+		$zaokraglenieWdol = floor($this->wynik);
+		return ("<small><em>Wynik po zaokrągleniu w dół <strong>$zaokraglenieWdol</strong></em>.</small><br>");
+	}
+
+// Zaokrąglenie w górę (metoda)
+	public function zaokraglenieWgore() {
+		$zaokraglenieWgore = ceil($this->wynik);
+		return ("<small><em>Wynik po zaokrągleniu w górę <strong>$zaokraglenieWgore</strong></em>.</small><br><br>");
+	}
 }
 
 /*
@@ -119,14 +130,28 @@ $dzialania = new Kalkulator($liczba1, $liczba2);
 // wywołanie i wyświetlanie poszczególnych metod
 echo $dzialania->dodawanie();
 echo $dzialania->zaokraglenie();
+echo $dzialania->zaokraglenieWdol();
+echo $dzialania->zaokraglenieWgore();
+
 echo $dzialania->odejmowanie();
 echo $dzialania->zaokraglenie();
+echo $dzialania->zaokraglenieWdol();
+echo $dzialania->zaokraglenieWgore();
+
 echo $dzialania->mnozenie();
 echo $dzialania->zaokraglenie();
+echo $dzialania->zaokraglenieWdol();
+echo $dzialania->zaokraglenieWgore();
+
 echo $dzialania->dzielenie();
 echo $dzialania->zaokraglenie();
+echo $dzialania->zaokraglenieWdol();
+echo $dzialania->zaokraglenieWgore();
+
 echo $dzialania->modulo();
 echo $dzialania->zaokraglenie();
+echo $dzialania->zaokraglenieWdol();
+echo $dzialania->zaokraglenieWgore();
 ?>
 </body>
 
