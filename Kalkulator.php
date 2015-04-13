@@ -140,16 +140,14 @@ class Kalkulator {
 
 // Subklasa (child class), dziedzicąca po kalkulatorze (parent class)
 class RomanKonwerter extends Kalkulator {
-	//	(metoda zamieniajaca wynik Kalkulatora na liczbę rzymską - soon...)
-			
+//	(metoda zamieniajaca wynik Kalkulatora na liczbę rzymską)
 	public function __construct($x, $y) {
+		echo ("<hr><strong><em>Odziedziczony konstruktor</em></strong><br><br>");
 		parent::__construct($x, $y);
-		//$this-wynik-> $wynik;
-		echo ("uruchamiam konwerter<br>");
-		
+		echo ("KONSTRUKTOR subklasy mówi: uruchamiam konwerter<br><br>");
 	}
 	
-	public function toRoman($int) {
+	public function toRoman() {
 			$romanAndArabicNums = array (
 					'M' 	=> 1000,
 					'CM' 	=> 900,
@@ -167,16 +165,16 @@ class RomanKonwerter extends Kalkulator {
 			);
 			$result = "";
 				
-			while ($int > 0){
+			while ($this->wynik > 0){
 				foreach ($romanAndArabicNums as $roman => $arab) {
-					if ($int >= $arab){
-						$int -= $arab;
+					if ($this->wynik >= $arab){
+						$this->wynik -= $arab;
 						$result .= $roman;
 						break;
 					}
 				}
 			}
-			return $result;
+			return "Według Rzymian to będzie: ".$result."<br><br>";
 }
 
 }
@@ -279,14 +277,13 @@ echo $dzialania->zaokraglenie();
 echo $dzialania->zaokraglenieWdol();
 echo $dzialania->zaokraglenieWgore();
 
+
 // Stworzenie drugiego obiektu klasy RomanKonwerter i wykorzystanie dziedziczonej metody (dodawania)
-// Próba "przepuszczenia" wyniku dodawania przez metode klasy RomanKonwerter
-$liczba3 = "2";
-$liczba4 = "2";
+$liczba3 = "40";
+$liczba4 = "50";
 $arab = new RomanKonwerter($liczba3, $liczba4);
 echo $arab->dodawanie();
-var_dump($suma);
-//echo $arab->toRoman($arab->dodawanie());
+echo $arab->toRoman();
 
 ?>
 </body>
