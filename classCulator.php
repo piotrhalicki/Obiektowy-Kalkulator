@@ -32,20 +32,20 @@
 </fieldset>
 </form>
 </div>
-<br>
+
 
 <?php
 function __autoload($className) {
 	$class = $className.".php";
 		if (file_exists($class)) {
-			echo ("Ładuję klasę <strong style='color: brown'>$className</strong><br><br>");
+			//echo ("Ładuję klasę <strong style='color: brown'>$className</strong><br><br>");
 			require ("./".$class);
 		} else {
 			echo ("Brak klasy <strong>$className</strong>.<br>");
 		}
 }
 
-include('classCulatorTesty.php');
+// include('classCulatorTesty.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	if(isset($_POST['dodaj']) OR 
@@ -61,30 +61,53 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	if(isset($_POST['dodaj'])) {
 		$arab->dodawanie();
 		echo $arab->dodawanie();
+		echo $arab->zaokraglenie();
+		echo $arab->zaokraglenieWdol();
+		echo $arab->zaokraglenieWgore();
+		echo $arab->toRoman();
 	}
 	
 	if(isset($_POST['odejmij'])) {
 		$arab->odejmowanie();
 		echo $arab->odejmowanie();
+		echo $arab->zaokraglenie();
+		echo $arab->zaokraglenieWdol();
+		echo $arab->zaokraglenieWgore();
+		echo $arab->toRoman();
 	}
 	
 	if(isset($_POST['pomnoz'])) {
 		$arab->mnozenie();
 		echo $arab->mnozenie();
+		echo $arab->zaokraglenie();
+		echo $arab->zaokraglenieWdol();
+		echo $arab->zaokraglenieWgore();
+		echo $arab->toRoman();
 	}
 	
 	if(isset($_POST['podziel'])) {
 		$arab->dzielenie();
 		echo $arab->dzielenie();
+		echo $arab->zaokraglenie();
+		echo $arab->zaokraglenieWdol();
+		echo $arab->zaokraglenieWgore();
+		echo $arab->toRoman();
 	}
 	
 	if(isset($_POST['modulo'])) {
 		$arab->modulo();
 		echo $arab->modulo();
+		echo $arab->zaokraglenie();
+		echo $arab->zaokraglenieWdol();
+		echo $arab->zaokraglenieWgore();
+		echo $arab->toRoman();
 	}
 }
 
 ?>
 </body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="main.js"></script>
 
 </html>
